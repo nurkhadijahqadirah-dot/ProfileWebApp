@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <h1>Create Your Personal Profile</h1>
+            <form action="ProfileServlet" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="studentId">Student ID:</label>
+                    <input type="text" id="studentId" name="studentId" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="program">Program:</label>
+                    <select id="program" name="program" required>
+                        <option value="">Select Program</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Software Engineering">Software Engineering</option>
+                        <option value="Data Science">Data Science</option>
+                        <option value="Cybersecurity">Cybersecurity</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="hobbies">Hobbies:</label>
+                    <textarea id="hobbies" name="hobbies" rows="3" placeholder="e.g., Reading, Swimming, Coding, Photography"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="introduction">Self Introduction:</label>
+                    <textarea id="introduction" name="introduction" rows="5" required placeholder="Tell us about yourself..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Create Profile</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
