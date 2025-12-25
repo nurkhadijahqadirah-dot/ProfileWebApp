@@ -4,12 +4,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Profile</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fff8dc 0%, #f5f5dc 25%, #f5f5dc 50%, #f5f5dc 75%, #fff8dc 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            margin: 0;
+            padding: 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-wrapper {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 40px;
+            border: 1.5px solid rgba(139, 69, 19, 0.3);
+            box-shadow: 0 20px 50px rgba(139, 69, 19, 0.2),
+                        0 10px 30px rgba(128, 128, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #8B4513 0%, #808000 50%, #8B4513 100%);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientText 4s ease infinite;
+            margin-bottom: 30px;
+        }
+
+        @keyframes gradientText {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #8B4513;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(139, 69, 19, 0.3);
+            border-radius: 15px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #808000;
+            box-shadow: 0 0 0 3px rgba(128, 128, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .submit-btn {
+            background: #8B4513;
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(139, 69, 19, 0.4);
+            background: #A0522D;
+        }
+
+        .nav-buttons {
+        margin-top: 30px;
+        }
+
+        .nav-btn {
+        display: block;
+        background: #808000;
+        color: white;
+        padding: 15px;
+        border-radius: 15px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(128, 128, 0, 0.4);
+        transition: all 0.3s ease;
+        width: 100%;
+        box-sizing: border-box;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(128, 128, 0, 0.4);
+            background: #8f8f00;
+        }
+
+        @media (max-width: 768px) {
+            .form-wrapper { padding: 25px; }
+            h1 { font-size: 2rem; }
+            .nav-buttons { margin-top: 20px; }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="form-wrapper">
             <h1>Create Your Personal Profile</h1>
+            
+            <!-- IMPORTANT: Use simple relative path -->
             <form action="ProfileServlet" method="POST">
                 <div class="form-group">
                     <label for="name">Full Name:</label>
@@ -50,6 +200,10 @@
                 
                 <button type="submit" class="submit-btn">Create Profile</button>
             </form>
+            
+            <div class="nav-buttons">
+                <a href="ViewProfileServlet" class="nav-btn">View All Profiles</a>
+            </div>
         </div>
     </div>
 </body>
