@@ -27,7 +27,6 @@ public class ViewProfileServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         
-        // Start HTML with beautiful design
         out.println("<!DOCTYPE html>");
         out.println("<html lang='en'>");
         out.println("<head>");
@@ -36,7 +35,6 @@ public class ViewProfileServlet extends HttpServlet {
         out.println("    <title>View All Profiles</title>");
         out.println("    <style>");
         
-        // CSS with Brown (#8B4513) and Olive (#808000) theme
         out.println("        body {");
         out.println("            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;");
         out.println("            min-height: 100vh;");
@@ -395,13 +393,13 @@ public class ViewProfileServlet extends HttpServlet {
         out.println("        </div>");
         
         try {
-            // Step 1: Load driver
+            //Load driver
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             
-            // Step 2: Connect to database
+            //Connect to database
             Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             
-            // Step 3: Query database with search
+            //Query database with search
             Statement stmt = conn.createStatement();
             String sql;
             
@@ -438,7 +436,7 @@ public class ViewProfileServlet extends HttpServlet {
                 profiles.add(profile);
             }
             
-            // Display appropriate messages 
+            // Display messages 
             if (count > 0) {
                 if (isSearching) {
                     out.println("        <div class='success-message'>");
